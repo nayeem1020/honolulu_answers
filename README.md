@@ -5,7 +5,7 @@ We used this repo to demonstrate how to script the Honolulu Answers app to deplo
 ## Setting up the Honolulu Answers application
 #### Prereqs:
 * [AWS Access Keys](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) ready and enabled.
-* [AWS CLI tool](https://aws.amazon.com/cli/) installed and configured. Directions for setting up a development environment with both the AWS CLI tool and Ruby installed can be found [here](https://github.com/cdsimplified/cdsimplified_commons/wiki/Development-Environment-Setup).
+* [AWS CLI tool](https://aws.amazon.com/cli/) installed and configured. Directions for setting up a development environment with both the AWS CLI tool and Ruby installed can be found [here](https://github.com/nayeem1020/cdsimplified_commons/wiki/Development-Environment-Setup).
  
 The AWS CLI tool is configured with the command:
 
@@ -16,7 +16,7 @@ aws configure
 ## Complete Pipeline Installation (Recommended):
 We have created and recommend the automation for a complete pipeline, using Jenkins, running the Honolulu Answers application.
 
-Follow the directions in our [honolulu-jenkins-cookbook](https://github.com/cdsimplified/honolulu_jenkins_cookbooks) repository.
+Follow the directions in our [honolulu-jenkins-cookbook](https://github.com/nayeem1020/honolulu_jenkins_cookbooks) repository.
 
 This will create a VPC, two private subnets, a public subnet, a Jenkins load balancer, an application load balancer, and the following instances:
 * Bastion host
@@ -30,14 +30,14 @@ First of all, clone the repository:
 
 ```
 sudo yum -y install git
-git clone https://github.com/cdsimplified/honolulu_answers.git
+git clone https://github.com/nayeem1020/honolulu_answers.git
 cd honolulu_answers/
 ```
 
 The application can be launched along with a VPC or you can launch it into your own VPC.
 ### Create the VPC and the Honolulu Application Stack
 
-The following command will create a VPC for you. It will create the VPC, two private subnets, a public subnet, a NAT server, and a Bastion host. You will need to provide a key pair name for Bastion SSH access. (You can find the CloudFormation code at [vpc_and_honolulu.template](https://github.com/cdsimplified/honolulu_answers/blob/master/pipeline/config/vpc_and_honolulu.template))
+The following command will create a VPC for you. It will create the VPC, two private subnets, a public subnet, a NAT server, and a Bastion host. You will need to provide a key pair name for Bastion SSH access. (You can find the CloudFormation code at [vpc_and_honolulu.template](https://github.com/nayeem1020/honolulu_answers/blob/master/pipeline/config/vpc_and_honolulu.template))
 
 ```
 aws cloudformation create-stack --stack-name HonoluluAnswers --template-body "`cat pipeline/config/vpc_and_honolulu.template`" --region <your_region> --disable-rollback --capabilities="CAPABILITY_IAM" --parameters ParameterKey=KeyName,ParameterValue="<key_name>"
@@ -50,7 +50,7 @@ aws cloudformation create-stack --stack-name HonoluluAnswers --template-body "`c
 
 
 ### Create the Honolulu Application Stack providing your VPC
-To launch the application into your own VPC, the VPC must contain two private subnets and a public subnet. Provide the subnet and VPC ids to the following command: (You can find the CloudFormation code at [honolulu.template](https://github.com/cdsimplified/honolulu_answers/blob/master/pipeline/config/honolulu.template))
+To launch the application into your own VPC, the VPC must contain two private subnets and a public subnet. Provide the subnet and VPC ids to the following command: (You can find the CloudFormation code at [honolulu.template](https://github.com/nayeem1020/honolulu_answers/blob/master/pipeline/config/honolulu.template))
 
 ```
 aws cloudformation create-stack --stack-name HonoluluAnswers --template-body "`cat pipeline/config/honolulu.template`" --region us-west-2  --disable-rollback --capabilities="CAPABILITY_IAM" --parameters ParameterKey=vpc,ParameterValue="<your_vpc_id>" ParameterKey=privateSubnetA,ParameterValue="<your_first_private_subnet_id>" ParameterKey=privateSubnetB,ParameterValue="<your_second_private_subnet_id>" ParameterKey=publicSubnet,ParameterValue="<your_public_subnet_id>" 
@@ -87,19 +87,19 @@ After about 50 minutes, an Opsworks stack is created and launched. To get detail
 
 ### Changes made to this Github Fork
 
-We made several changes to this repository, you can view them here: [Stelligent Changes to the Honolulu Answers Application](https://github.com/cdsimplified/honolulu_answers/wiki/Stelligent-Changes-to-the-Honolulu-Answers-Application)
+We made several changes to this repository, you can view them here: [Stelligent Changes to the Honolulu Answers Application](https://github.com/nayeem1020/honolulu_answers/wiki/Stelligent-Changes-to-the-Honolulu-Answers-Application)
 
 ### Tools Used
 
-We're using a bunch of great tools for automating and running this application. You can view the list here: [Tools Used](https://github.com/cdsimplified/honolulu_answers/wiki/Tools-Used)
+We're using a bunch of great tools for automating and running this application. You can view the list here: [Tools Used](https://github.com/nayeem1020/honolulu_answers/wiki/Tools-Used)
 
 ## Resources
 ### Working Systems
 
 NOTE: The links below may or may not be operational at any given time.
 
-* [pipelinedemo.elasticoperations.com](http://pipelinedemo.elasticoperations.com/) - Working Continous Integration Server. To setup your own Jenkins server based on the same open source scripts, go to [Launching a Jenkins Environment](https://github.com/cdsimplified/honolulu_jenkins_cookbooks/wiki/Launching-a-Jenkins-Environment).
+* [pipelinedemo.elasticoperations.com](http://pipelinedemo.elasticoperations.com/) - Working Continous Integration Server. To setup your own Jenkins server based on the same open source scripts, go to [Launching a Jenkins Environment](https://github.com/nayeem1020/honolulu_jenkins_cookbooks/wiki/Launching-a-Jenkins-Environment).
 * [appdemo.elasticoperations.com](http://appdemo.elasticoperations.com/) - Working Honolulu Answers application based on the automation described in this README.
 
 ### Diagrams
-We've put together several diagrams to help show how everything ties together. You can view them here: [Architecture and Design](https://github.com/cdsimplified/honolulu_answers/wiki/Architecture-and-Design)
+We've put together several diagrams to help show how everything ties together. You can view them here: [Architecture and Design](https://github.com/nayeem1020/honolulu_answers/wiki/Architecture-and-Design)

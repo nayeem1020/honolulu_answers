@@ -60,10 +60,10 @@ pipelines.each { pipeline, stages ->
       configure pipelineConfig(jobName, stage)
       name "${jobName}-dsl"
       multiscm {
-        git("https://github.com/cdsimplified/honolulu_answers_cookbooks.git", "master") { node ->
+        git("https://github.com/nayeem1020/honolulu_answers_cookbooks.git", "master") { node ->
           node / skipTag << "true"
         }
-        git("https://github.com/cdsimplified/honolulu_answers.git", "master") { node ->
+        git("https://github.com/nayeem1020/honolulu_answers.git", "master") { node ->
           node / skipTag << "true"
         }
       }
@@ -106,10 +106,10 @@ job {
     stringParam("pipeline_instance_id", "", "This is the id of the pipeline you wish to accept or reject")
   }
   multiscm {
-   git("https://github.com/cdsimplified/honolulu_answers_cookbooks.git", "master") { node ->
+   git("https://github.com/nayeem1020/honolulu_answers_cookbooks.git", "master") { node ->
      node / skipTag << "true"
    }
-   git("https://github.com/cdsimplified/honolulu_answers.git", "master") { node ->
+   git("https://github.com/nayeem1020/honolulu_answers.git", "master") { node ->
      node / skipTag << "true"
    }
  }
@@ -128,10 +128,10 @@ job {
     stringParam("pipeline_instance_id", "", "This is the id of the pipeline you wish to accept or reject")
   }
   multiscm {
-   git("https://github.com/cdsimplified/honolulu_answers_cookbooks.git", "master") { node ->
+   git("https://github.com/nayeem1020/honolulu_answers_cookbooks.git", "master") { node ->
      node / skipTag << "true"
    }
-   git("https://github.com/cdsimplified/honolulu_answers.git", "master") { node ->
+   git("https://github.com/nayeem1020/honolulu_answers.git", "master") { node ->
      node / skipTag << "true"
    }
  }
@@ -152,10 +152,10 @@ job {
     stringParam("SHA", "HEAD", "The Git SHA of the revision you want to deploy. The default is HEAD, which will just get the latest code from the repo.")
   }
   multiscm {
-    git("https://github.com/cdsimplified/honolulu_answers_cookbooks.git", "master") { node ->
+    git("https://github.com/nayeem1020/honolulu_answers_cookbooks.git", "master") { node ->
       node / skipTag << "true"
     }
-    git("https://github.com/cdsimplified/honolulu_answers.git", "master") { node ->
+    git("https://github.com/nayeem1020/honolulu_answers.git", "master") { node ->
       node / skipTag << "true"
     }
   }
@@ -180,10 +180,10 @@ job {
     stringParam("stack_name", "", "The CloudFormation stack name to clean up")
    }
    multiscm {
-    git("https://github.com/cdsimplified/honolulu_answers_cookbooks.git", "master") { node ->
+    git("https://github.com/nayeem1020/honolulu_answers_cookbooks.git", "master") { node ->
       node / skipTag << "true"
     }
-    git("https://github.com/cdsimplified/honolulu_answers.git", "master") { node ->
+    git("https://github.com/nayeem1020/honolulu_answers.git", "master") { node ->
       node / skipTag << "true"
     }
   }

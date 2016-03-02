@@ -71,8 +71,8 @@
                             "source /home/ec2-user/.rvm/scripts/rvm","\n",
                             "rvm install ruby-1.9.3-p484","\n",
                             "cd /home/ec2-user","\n",
-                            "/usr/bin/git clone https://github.com/cdsimplified/honolulu_answers.git","\n",
-                            "/usr/bin/git clone https://github.com/cdsimplified/honolulu_jenkins_cookbooks.git","\n",
+                            "/usr/bin/git clone https://github.com/nayeem1020/honolulu_answers.git","\n",
+                            "/usr/bin/git clone https://github.com/nayeem1020/honolulu_jenkins_cookbooks.git","\n",
                             "cd /home/ec2-user/honolulu_answers","\n",
                             "bundle install","\n",
                 "/opt/aws/bin/cfn-init -s ", { "Ref": "AWS::StackId" }, " --region us-east-1 -r Instance","\n"

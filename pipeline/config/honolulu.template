@@ -147,7 +147,7 @@
         "DefaultInstanceProfileArn": { "Fn::GetAtt": [ "OpsWorksInstanceProfile", "Arn" ] },
         "CustomCookbooksSource": {
           "Type": "git",
-          "Url": "https://github.com/cdsimplified/honolulu_answers_cookbooks.git"
+          "Url": "https://github.com/nayeem1020/honolulu_answers_cookbooks.git"
         },
         "UseCustomCookbooks": "true",
         "CustomJson": {
@@ -236,7 +236,7 @@
         "Type": "rails",
         "AppSource": {
           "Type": "git",
-          "Url": "https://github.com/cdsimplified/honolulu_answers.git"
+          "Url": "https://github.com/nayeem1020/honolulu_answers.git"
         },
         "Attributes": {
           "DocumentRoot": "public",
